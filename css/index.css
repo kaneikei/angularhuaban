@@ -1,0 +1,19 @@
+body{margin:0px;font-family: Arial;}
+.kongzhiban{width: 250px;position: absolute;left: 30px;top: 10px;bottom: 10px;background: #333442;}
+.huaban{position: absolute;left: 300px;top: 10px;cursor: default;background-color: #C8D2E1;cursor: pointer;}
+ul,li{list-style: none;margin:0px;padding: 0px;}
+li{color:white;cursor:pointer;margin-bottom: 10px;}
+.active{color:orange;background-color: #1a1a1a}
+a{text-decoration: none;color: white;}
+li{padding-left: 40px;}
+.xingzhuang{padding: 0px;}
+.xingzhuang li{height: 40px;background-size: 40px 40px;background-repeat: no-repeat;background-position: 105px 0px;line-height: 40px;font-weight: bold;padding-left: 40px;}
+.xingzhuang li:first-child{background-image: url(../images/yuanxing.png);}
+.xingzhuang li:nth-child(2){background-image: url(../images/xiangpi.png);}
+.xingzhuang li:nth-child(4){background-image: url(../images/juxing.png);}
+.xingzhuang li:nth-child(3){background-image: url(../images/xian.png);}
+.xingzhuang li:nth-child(5){background-image: url(../images/qianbi.png);}
+.tianchong input{width: 30px;height: 20px;margin-left: 35px;margin-top: 2px;}
+
+img{cursor: pointer;}
+.yuanxing,.xiangpi{position: absolute;display: none;}

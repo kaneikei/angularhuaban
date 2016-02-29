@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='huaban'>
+<head>
+	<meta charset="UTF-8">
+	<title>画板</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/angular.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body ng-controller='huabancontroller'>
+	<div class="kongzhiban">
+		<input ng-model='canvasWH.width' type="range" min='400' max='1020' step='2'>
+		<input ng-model='canvasWH.height' type="range" min='400' max='645' step='2'>
+		
+		<ul class='xingzhuang'>
+			<li ng-repeat='(key,value) in tools' ng-click='choose(value)' ng-class='{active:value==fnname}'>
+				<span>{{key}}</span>
+			</li>
+		</ul>
+		<hr>
+		<ul class='tianchong'>
+			<li ng-click="tianmiao('fill')" ng-class="{active:csstate.style=='fill'}">填充<input type="color" ng-model='csstate.fillcolor'></li>
+			
+			<li ng-click="tianmiao('stroke')" ng-class="{active:csstate.style=='stroke'}">描边<input type="color" ng-model='csstate.strokecolor'></li>
+			
+		</ul>
+		<hr>
+		<ul><li>线宽</li></ul>
+		<input type="range" min='1' max='30' step='1' ng-model='csstate.linewidth'>
+		<hr>
+		<ul>
+			<li ng-click='xinjian()'>新建</li>
+			<li><a ng-click='baocun($event)' href=''>保存</a></li>
+			<li>后退</li>
+		</ul>
+	</div>
+	<canvas class="huaban" width='{{canvasWH.width}}' height='{{canvasWH.height}}'></canvas>
+
+	<img src="./images/yuanxing.png" alt="" class="yuanxing" width='50px' height='50px'>
+	<img src="./images/xiangpi.png" alt="" class="xiangpi" width='50px' height='50px'>
+</body>
+</html>
