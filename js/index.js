@@ -149,7 +149,7 @@ huaban.controller('huabancontroller', ['$scope', function($scope){
 
 
 
-	  document.onmousedown=function(ev)
+	  /*document.onmousedown=function(ev)
 	  {
 	  	if (ev.preventDefault)
 		{
@@ -160,6 +160,6 @@ huaban.controller('huabancontroller', ['$scope', function($scope){
 			ev.returnValue=false;//IE中阻止函数器默认动作的方式
 		}
 	  	
-	  }
+	  }*/
 
 }])
