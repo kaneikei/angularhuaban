@@ -1,18 +1,24 @@
 var huaban=angular.module('huaban',[]);
 huaban.controller('huabancontroller', ['$scope', function($scope){
-	$scope.canvasWH={width:1020,height:645}
+	$scope.canvasWH={width:1356,height:509}
 
-	$scope.csstate={style:'stroke',fillcolor:'#0000ff',strokecolor:'#0000ff',linewidth:1}
-	$scope.tianmiao=function(i)
+	$scope.csstate={style:'stroke',fillcolor:'black',strokecolor:'black',linewidth:1}
+	$scope.tianmiao=function(i,c)
 	{
 		$scope.csstate.style=i;
+		$scope.csstate.fillcolor=c;
+		$scope.csstate.strokecolor=c;
+	}
+	$scope.kuandu=function(i)
+	{
+		$scope.csstate.linewidth=i;
 	}
 
 	var huahua=document.querySelector('.huaban');
 	ctx=huahua.getContext('2d');
 	var current;
-	var yuanxing=document.querySelector('.yuanxing');
-	var xiangpi=document.querySelector('.xiangpi');
+	// var yuanxing=document.querySelector('.yuanxing');
+	// var xiangpi=document.querySelector('.xiangpi');
 
 	var setgongju={arc:function(e)
 		{
@@ -87,9 +93,9 @@ huaban.controller('huabancontroller', ['$scope', function($scope){
 		{
 			huahua.onmousemove=function(ev)
 			{	
-				xiangpi.style.display='block';
-				xiangpi.style.left=ev.clientX-20+'px';
-				xiangpi.style.top=ev.clientY-20+'px';
+				// xiangpi.style.display='block';
+				// xiangpi.style.left=ev.clientX-20+'px';
+				// xiangpi.style.top=ev.clientY-20+'px';
 				ctx.clearRect(ev.offsetX,ev.offsetY,30,30)
 			}
 		}}

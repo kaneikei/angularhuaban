@@ -3,38 +3,83 @@
 <head>
 	<meta charset="UTF-8">
 	<title>画板</title>
+	
+	<link rel="stylesheet" href="./css/materialize.min.css">
 	<link rel="stylesheet" href="./css/index.css">
 	<script src="./js/angular.js"></script>
 	<script src="./js/index.js"></script>
 </head>
 <body ng-controller='huabancontroller'>
-	<div class="kongzhiban">
-		<input ng-model='canvasWH.width' type="range" min='400' max='1020' step='2'>
-		<input ng-model='canvasWH.height' type="range" min='400' max='645' step='2'>
+	<div class="kongzhiban light-blue lighten-4">
+		<div class="tiaodaxiao">
+			<div>调整画布的大小</div>
+			<input ng-model='canvasWH.width' type="range" min='400' max='1356' step='2'>
+			<input ng-model='canvasWH.height' type="range" min='400' max='509' step='2'>
+		</div>
+		
 		
 		<ul class='xingzhuang'>
 			<li ng-repeat='(key,value) in tools' ng-click='choose(value)' ng-class='{active:value==fnname}'>
-				<span>{{key}}</span>
+				<span class="z-depth-1">{{key}}
 			</li>
 		</ul>
-		<hr>
+		
 		<ul class='tianchong'>
-			<li ng-click="tianmiao('fill')" ng-class="{active:csstate.style=='fill'}">填充<input type="color" ng-model='csstate.fillcolor'></li>
+			<li ng-click="tianmiao('fill')">
+			<span class='waves-effect waves-light btn' ng-class="{active:csstate.style=='fill'}">填充</span>
+			<input type="color" ng-model='csstate.fillcolor'></li>
 			
-			<li ng-click="tianmiao('stroke')" ng-class="{active:csstate.style=='stroke'}">描边<input type="color" ng-model='csstate.strokecolor'></li>
+			<li ng-click="tianmiao('stroke')">
+			<span class='waves-effect waves-light btn' ng-class="{active:csstate.style=='stroke'}">描边</span>
+			<input type="color" ng-model='csstate.strokecolor'></li>
+			<div class="filldeyanse">
+				<div class='red yanse' ng-click="tianmiao('fill','red')" ng-model='csstate.fillcolor'></div>
+				<div class='orange yanse' ng-click="tianmiao('fill','orange')" ng-model='csstate.fillcolor'></div>
+				<div class='blue yanse' ng-click="tianmiao('fill','blue')" ng-model='csstate.fillcolor'></div>
+				<div class='pink yanse' ng-click="tianmiao('fill','pink')" ng-model='csstate.fillcolor'></div>
+				<div class='purple yanse' ng-click="tianmiao('fill','purple')" ng-model='csstate.fillcolor'></div>
+				<div class='indigo yanse' ng-click="tianmiao('fill','indigo')" ng-model='csstate.fillcolor'></div>
+				<div class='cyan yanse' ng-click="tianmiao('fill','cyan')" ng-model='csstate.fillcolor'></div>
+				<div class='green yanse' ng-click="tianmiao('fill','green')" ng-model='csstate.fillcolor'></div>
+			</div>
+			<div class="strokedeyanse">
+				<div class='lime yanse' ng-click="tianmiao('stroke','lime')" ng-model='csstate.strokecolor'></div>
+				<div class='yellow yanse' ng-click="tianmiao('stroke','yellow')" ng-model='csstate.strokecolor'></div>
+				<div class='amber yanse' ng-click="tianmiao('stroke','amber')" ng-model='csstate.strokecolor'></div>
+				<div class='orange yanse' ng-click="tianmiao('stroke','orange')" ng-model='csstate.strokecolor'></div>
+				<div class='brown yanse' ng-click="tianmiao('stroke','brown')" ng-model='csstate.strokecolor'></div>
+				<div class='grey yanse' ng-click="tianmiao('stroke','grey')" ng-model='csstate.strokecolor'></div>
+				<div class='red yanse' ng-click="tianmiao('stroke','red')" ng-model='csstate.strokecolor'></div>
+				<div class='blue yanse' ng-click="tianmiao('stroke','blue')" ng-model='csstate.strokecolor'></div>
+			</div>
 			
 		</ul>
-		<hr>
-		<ul><li>线宽</li></ul>
-		<input type="range" min='1' max='30' step='1' ng-model='csstate.linewidth'>
-		<hr>
-		<ul>
-			<li ng-click='xinjian()'>新建</li>
-			<li><a ng-click='baocun($event)' href=''>保存</a></li>
-			<li>后退</li>
+		
+		<ul class='xiankuan'>
+			<li>调整线宽</li>
+			<li class='ran'><input type="range" min='1' max='30' step='1' ng-model='csstate.linewidth'></li>
+			<li>
+				<ul class='xiandekuandu'>
+					<li class='sanxiangsu' ng-click="kuandu(3)"></li>
+					<li class='wuxiangsu' ng-click="kuandu(5)"></li>
+					<li class='qixiangsu' ng-click="kuandu(7)"></li>
+					<li class='shixiangsu' ng-click="kuandu(10)" ng-model='csstate.linewidth'></li>
+				</ul>
+			</li>
 		</ul>
+		
+		
+		<ul class='baocun'>
+			<li ng-click='xinjian()'>
+				<span class='waves-effect waves-light btn'>新建</span>
+			</li>
+			<li><a ng-click='baocun($event)' href=''>
+				<span class='waves-effect waves-light btn'>保存</span></a>
+			</li>
+			<!-- <li>后退</li> -->
+		</ul> 
 	</div>
-	<canvas class="huaban" width='{{canvasWH.width}}' height='{{canvasWH.height}}'></canvas>
+	<canvas class="huaban light-blue lighten-5" width='{{canvasWH.width}}' height='{{canvasWH.height}}'></canvas>
 
 	<img src="./images/yuanxing.png" alt="" class="yuanxing" width='50px' height='50px'>
 	<img src="./images/xiangpi.png" alt="" class="xiangpi" width='50px' height='50px'>
